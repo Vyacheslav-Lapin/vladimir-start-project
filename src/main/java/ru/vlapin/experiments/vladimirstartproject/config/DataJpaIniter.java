@@ -1,6 +1,5 @@
 package ru.vlapin.experiments.vladimirstartproject.config;
 
-import java.util.stream.Stream;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -16,8 +15,11 @@ public class DataJpaIniter implements ApplicationRunner {
 
   @Override
   public void run(ApplicationArguments __) {
-    Stream.of("Мурзик, Барсик, Матроскин".split(", "))
-      .map(Cat::new)
-      .forEach(catRepository::save);
+    //    String[] catName = "Мурзик, Барсик, Матроскин".split(", ");
+    String[] catName = {"Мурзик", "Барсик", "Матроскин"};
+    for (String s : catName) {
+      Cat cat = new Cat(s);
+      catRepository.save(cat);
+    }
   }
 }

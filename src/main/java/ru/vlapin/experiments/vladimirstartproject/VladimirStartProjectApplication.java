@@ -9,5 +9,4 @@ public class VladimirStartProjectApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(VladimirStartProjectApplication.class, args);
 	}
-
 }
